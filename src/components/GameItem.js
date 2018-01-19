@@ -8,8 +8,8 @@ export default class GameItem extends Component {
 					<div class="fas fa-play"></div>
 				</div>
 				<div class="game__inner">
-					<img class="game__logo" src="http://cdn.edgecast.steamstatic.com/steam/apps/524220/header.jpg?t=1511792873"/>
-					<div class="game__description">NieR:Automata</div>
+					<img class="game__logo" src={this.props.game.image}/>
+					<div class="game__description">{this.props.game.name}</div>
 				</div>
   			</div>
 		)

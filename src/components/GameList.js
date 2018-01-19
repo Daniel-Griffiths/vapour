@@ -1,11 +1,14 @@
-import styled from 'styled-components'
+import React, { Component } from 'react'
+import GameItem from './GameItem'
 
-export default styled.div`
-  padding: 1rem;
-  display: grid;
-  grid-gap: 1rem;
-  grid-area: main;
-  overflow-y: scroll;
-  height: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-`
+export default class GameList extends Component {
+	render(){
+		return ( 
+			<div>
+				{this.props.games.map(game => {
+					return <GameItem game={game}/>
+				})}	
+			</div>
+		)
+	}
+}

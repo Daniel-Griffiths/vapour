@@ -25,11 +25,18 @@ class App extends Component {
             <NavButton>Test</NavButton>
           </NavItem>
         </Nav>
-        <GameList>
-          <GameItem>
-            
-          </GameItem>
-        </GameList>
+        <GameList games={
+          [
+            {
+              name: 'Nier',
+              image: 'http://cdn.edgecast.steamstatic.com/steam/apps/524220/header.jpg?t=1511792873'
+            },
+            {
+              name: 'FF7',
+              image: 'http://freepcgamesden.com/wp-content/uploads/2015/12/Final-Fantasy-VII-Steam-Free-Game-Full-Download.jpg'
+            }
+          ]
+        }/>
       </div>
     );
   }
