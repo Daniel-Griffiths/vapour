@@ -19,9 +19,11 @@ export default class GameSearch extends Component {
 				style={
 					{
 						border: '0',
+						width: '100%',
+						display:'block',
 						color: 'inherit',
-						padding: '.5rem 1rem .5rem 2.5rem',
 						background: '#404b58',
+						padding: '.5rem 1rem .5rem 2.5rem',
 					}
 				}/>
 			</div>

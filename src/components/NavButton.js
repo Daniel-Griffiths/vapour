@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-export default styled.a`
+export default styled.div`
 	display: block;
+    cursor: pointer;
     border-radius: 3px;
 	padding: .5rem 1rem;
     transition: .1s ease;

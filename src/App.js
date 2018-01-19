@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Nav>
           <NavItem>
             <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
