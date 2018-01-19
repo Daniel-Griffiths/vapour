@@ -16,12 +16,9 @@ export default class GameList extends Component {
 				}
 			}>
 				{this.props.games
-					.filter(game => {
-						return game.name.toLowerCase().includes(this.props.filter.toLowerCase())
-					})
-					.map(game => {
-					return <Game game={game} key={game.id}/>
-				})}	
+					.filter(game => game.name.toLowerCase().includes(this.props.filter.toLowerCase()))
+					.map(game => <Game game={game} key={game.id}/>)
+				}	
 			</div>
 		)
 	}

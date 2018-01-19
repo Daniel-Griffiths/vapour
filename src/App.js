@@ -31,10 +31,7 @@ class App extends Component {
       <div className="App">
         <Nav>
           <NavItem>
-            <GameSearch onTextChange={ text => {
-              this.setState({filter: text})
-              console.log(this.state.filter)
-            } }/>
+            <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
           </NavItem>
           <NavItem>
             <NavButton>
