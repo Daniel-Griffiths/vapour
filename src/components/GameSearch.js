@@ -14,9 +14,7 @@ export default class GameSearch extends Component {
 				}></i>
 				<input placeholder="Search" autoFocus 
 				onKeyUp={
-					event => {
-						this.props.onTextChange(event.target.value)
-					}
+					event => this.props.onTextChange(event.target.value)
 				}
 				style={
 					{
