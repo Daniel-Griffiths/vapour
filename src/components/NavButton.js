@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-export default styled.nav`
-	padding: .5rem 1rem;
+export default styled.a`
+	display: block;
     border-radius: 3px;
-    border 1px: solid rgba(255,255,255,.1);
+	padding: .5rem 1rem;
     transition: .1s ease;
+    border: 1px solid rgba(255,255,255,.1);
 
     &:hover{
     	background: rgba(255,255,255,0.1);
