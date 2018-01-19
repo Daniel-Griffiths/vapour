@@ -1,24 +1,19 @@
 {
 	"name": "vapour",
 	"version": "0.1.0",
+	"author": "Daniel Griffiths",
+	"description": "An alternative open source Steam client",
 	"private": true,
 	"dependencies": {
 		"react": "^16.2.0",
-		"react-dom": "^16.2.0"
+		"react-dom": "^16.2.0",
+		"styled-components": "^2.4.0"
 	},
 	"devDependencies": {
 		"electron": "^1.7.10",
 		"electron-builder": "^19.54.0",
 		"react-scripts": "1.1.0"
 	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject"
-	},
-	"homepage": "./",
-	"main": "src/electron-starter.js",
 	"scripts": {
 		"start": "nf start -p 3000",
 		"build": "react-scripts build",
@@ -31,10 +26,13 @@
 		"dist": "npm run build && build",
 		"postinstall": "install-app-deps"
 	},
+	"homepage": "./",
+	"main": "src/electron.js",
 	"build": {
+		"extends": null,
 		"appId": "com.electron.electron-with-create-react-app",
 		"win": {
-			"iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+			"icon": "./public/favicon.ico"
 		},
 		"directories": {
 			"buildResources": "public"
