@@ -32,7 +32,7 @@
 		"extends": null,
 		"appId": "com.electron.electron-with-create-react-app",
 		"win": {
-			"icon": "./public/favicon.ico"
+			"icon": "./public/logo.png"
 		},
 		"directories": {
 			"buildResources": "public"
