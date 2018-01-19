@@ -1,18 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import Nav from './components/Nav'
+import NavItem from './components/NavItem'
+import NavButton from './components/NavButton'
+import GameItem from './components/GameItem'
+import GameList from './components/GameList'
+import GameSearch from './components/GameSearch'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Nav>
+          <NavItem>
+            <GameSearch/>
+          </NavItem>
+          <NavItem>
+            <NavButton>Test</NavButton>
+          </NavItem>
+          <NavItem>
+            <NavButton>Test</NavButton>
+          </NavItem>
+          <NavItem>
+            <NavButton>Test</NavButton>
+          </NavItem>
+        </Nav>
+        <GameList>
+          <GameItem>
+            
+          </GameItem>
+        </GameList>
       </div>
     );
   }
