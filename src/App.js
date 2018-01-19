@@ -7,12 +7,34 @@ import GameSearch from './components/GameSearch'
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      filter: '',
+      games: [
+        {
+          id: 524220,
+          name: 'Nier',
+          image: 'http://cdn.edgecast.steamstatic.com/steam/apps/524220/header.jpg?t=1511792873'
+        },
+        {
+          id: 39140,
+          name: 'FF7',
+          image: 'http://freepcgamesden.com/wp-content/uploads/2015/12/Final-Fantasy-VII-Steam-Free-Game-Full-Download.jpg'
+        }
+      ]
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Nav>
           <NavItem>
-            <GameSearch/>
+            <GameSearch onTextChange={ text => {
+              this.setState({filter: text})
+              console.log(this.state.filter)
+            } }/>
           </NavItem>
           <NavItem>
             <NavButton>
@@ -30,20 +52,7 @@ class App extends Component {
             </NavButton>
           </NavItem>
         </Nav>
-        <GameList games={
-          [
-            {
-              id: 1,
-              name: 'Nier',
-              image: 'http://cdn.edgecast.steamstatic.com/steam/apps/524220/header.jpg?t=1511792873'
-            },
-            {
-              id: 2,
-              name: 'FF7',
-              image: 'http://freepcgamesden.com/wp-content/uploads/2015/12/Final-Fantasy-VII-Steam-Free-Game-Full-Download.jpg'
-            }
-          ]
-        }/>
+        <GameList games={ this.state.games } filter={ this.state.filter }/>
       </div>
     );
   }

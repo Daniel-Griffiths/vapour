@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class GameSearch extends Component {
 	render(){
+
 		return (
 			<div>
 				<i className="fas fa-search" style={
@@ -11,7 +12,13 @@ export default class GameSearch extends Component {
 						position: 'absolute',
 					}
 				}></i>
-				<input placeholder="Search" autoFocus style={
+				<input placeholder="Search" autoFocus 
+				onKeyUp={
+					event => {
+						this.props.onTextChange(event.target.value)
+					}
+				}
+				style={
 					{
 						border: '0',
 						color: 'inherit',
