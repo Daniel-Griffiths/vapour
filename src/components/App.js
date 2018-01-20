@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Nav from './components/Nav'
-import NavItem from './components/NavItem'
-import NavButton from './components/NavButton'
-import GameList from './components/GameList'
-import GameSearch from './components/GameSearch'
-import './App.css';
+import Nav from './Nav'
+import NavItem from './NavItem'
+import NavButton from './NavButton'
+import GameList from './GameList'
+import GameSearch from './GameSearch'
+import './../assets/css/App.css';
 
 class App extends Component {
   constructor() {
