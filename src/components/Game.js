@@ -24,7 +24,8 @@ export default class Game extends Component {
 					<i className="fas fa-play"></i>
 				</GameOverlay>
 				<div>
-					<GameImage src={ 'http://cdn.akamai.steamstatic.com/steam/apps/' + this.props.game.appid + '/header.jpg' }/>
+					<GameImage src={ 'http://cdn.akamai.steamstatic.com/steam/apps/' + this.props.game.appid + '/header.jpg' } 
+					alt={ this.props.game.name }/>
 					<GameDescription>{this.props.game.name}</GameDescription>
 				</div>
   			</div>
