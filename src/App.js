@@ -11,19 +11,23 @@ class App extends Component {
     super()
     this.state = {
       filter: '',
-      games: [
-        {
-          id: 524220,
-          name: 'Nier',
-          image: 'http://cdn.edgecast.steamstatic.com/steam/apps/524220/header.jpg?t=1511792873'
-        },
-        {
-          id: 39140,
-          name: 'FF7',
-          image: 'http://freepcgamesden.com/wp-content/uploads/2015/12/Final-Fantasy-VII-Steam-Free-Game-Full-Download.jpg'
-        }
-      ]
-    }
+      games: []
+    } 
+  }
+
+  componentDidMount() {
+    const id = '76561198025246708';
+    const secret = 'redacted ;)';
+    fetch(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${secret}&steamid=${id}&format=json&include_appinfo=1&include_played_free_games=1`)
+    .then(response => response.json())
+    .then(response => response.response.games)
+    .then(games => {
+      this.setState({
+        games
+      })
+    }).catch(error => {
+      alert('Failed to load games. Please try restarting Vapour.')
+    })  
   }
 
   render() {
@@ -34,19 +38,13 @@ class App extends Component {
             <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
           </NavItem>
           <NavItem>
-            <NavButton>
-              <i className="fas fa-shopping-cart"></i>  
-            </NavButton>
+            <NavButton><i className="fas fa-shopping-cart"></i></NavButton>
           </NavItem>
           <NavItem>
-            <NavButton>
-              <i className="fas fa-users"></i> 
-            </NavButton>
+            <NavButton><i className="fas fa-users"></i></NavButton>
           </NavItem>
           <NavItem>
-            <NavButton>
-              <i className="fas fa-cog"></i> 
-            </NavButton>
+            <NavButton><i className="fas fa-cog"></i></NavButton>
           </NavItem>
         </Nav>
         <GameList games={ this.state.games } filter={ this.state.filter }/>

@@ -1,6 +1,18 @@
-import styled from 'styled-components'
+import React, { Component } from 'react'
+import LazyLoad from 'react-lazyload'
+import GameLoader from './GameLoader'
 
-export default styled.img`
-	width: 100%;
-	display: block;
-`
+export default class GameImage extends Component {
+	render() {
+		return (
+			<LazyLoad height={200} offset={200} placeholder={<GameLoader />} once>
+				<img src={ this.props.src } style={
+					{
+						display: 'block',
+						width: '100%',
+					}
+				}/>
+			</LazyLoad>
+		)
+	}
+}

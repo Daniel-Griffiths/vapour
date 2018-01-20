@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import GameLoader from './GameLoader'
 import Game from './Game'
 
 export default class GameList extends Component {
@@ -15,9 +16,13 @@ export default class GameList extends Component {
 					gridTemplateColumns: "repeat(auto-fill, minmax(300px, auto))"
 				}
 			}>
-				{this.props.games
-					.filter(game => game.name.toLowerCase().includes(this.props.filter.toLowerCase()))
-					.map(game => <Game game={game} key={game.id}/>)
+				{!this.props.games.length 
+					? 
+						<GameLoader/>
+					: 
+						this.props.games
+						.filter(game => game.name.toLowerCase().includes(this.props.filter.toLowerCase()))
+						.map(game => <Game game={game} key={game.appid}/>)
 				}	
 			</div>
 		)

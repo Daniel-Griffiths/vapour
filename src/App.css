@@ -4,6 +4,18 @@
   --brand-primary: #2f3741;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +31,6 @@ body {
   color: #fff;
   height: 100vh;
   display: grid;
-  overflow: hidden;
   background: #1c2127;
   font-family: sans-serif;
   grid-template-areas: "nav" "main";
