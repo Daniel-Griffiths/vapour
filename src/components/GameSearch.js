@@ -7,7 +7,7 @@ export default class GameSearch extends Component {
 			<div>
 				<i className="fas fa-search" style={
 					{
-						top: '1rem',
+						top: '1.2rem',
 						left: '1.25rem',
 						position: 'absolute',
 					}

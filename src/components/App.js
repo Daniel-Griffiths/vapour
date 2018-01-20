@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import NavItem from './NavItem'
-import NavButton from './NavButton'
 import GameList from './GameList'
+import NavButton from './NavButton'
+import GameLoader from './GameLoader'
 import GameSearch from './GameSearch'
 import './../assets/css/App.css';
 
@@ -16,8 +17,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const id = '76561198025246708';
-    const secret = 'redacted ;)';
+    const id = '76561197977953772';
+    const secret = '';
     fetch(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${secret}&steamid=${id}&format=json&include_appinfo=1&include_played_free_games=1`)
     .then(response => response.json())
     .then(response => response.response.games)
@@ -47,7 +48,21 @@ export default class App extends Component {
             <NavButton><i className="fas fa-cog"></i></NavButton>
           </NavItem>
         </Nav>
-        <GameList games={ this.state.games } filter={ this.state.filter }/>
+        { !this.state.games.length 
+        ? 
+          <div style={
+            { 
+              height: '100vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContents: 'center'
+            }
+          }>
+            <GameLoader />
+          </div>
+        :
+          <GameList games={ this.state.games } filter={ this.state.filter }/>
+        }
       </div>
     )
   }

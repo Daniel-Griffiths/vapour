@@ -1,8 +1,20 @@
+/*
+|---------------------------------------------------
+| Variables
+|---------------------------------------------------
+*/
+
 :root {
   --background-primary: #1C2127;
   --box-shadow-primary: 0 1px 4px 0px rgba(0,0,0,0.3);
   --brand-primary: #2f3741;
 }
+
+/*
+|---------------------------------------------------
+| Scroll Bars
+|---------------------------------------------------
+*/
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -16,6 +28,12 @@
   background: #666; 
 }
 
+/*
+|---------------------------------------------------
+| Core Styles
+|---------------------------------------------------
+*/
+
 * {
   box-sizing: border-box;
 }
@@ -24,16 +42,11 @@ html, body, #root{
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: sans-serif;
 }
 
 body {
   color: #fff;
   height: 100vh;
-  display: grid;
   background: #1c2127;
-  font-family: sans-serif;
-  grid-template-areas: "nav" "main";
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  font-family: 'Source Sans Pro', sans-serif;
 }
