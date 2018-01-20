@@ -31,6 +31,10 @@ export default class App extends Component {
     })  
   }
 
+  getGames() {
+    return this.state.games.filter(game => game.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+  }
+
   render() {
     return (
       <div>
@@ -49,19 +53,19 @@ export default class App extends Component {
           </NavItem>
         </Nav>
         { !this.state.games.length 
-        ? 
-          <div style={
-            { 
-              height: '100vh',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContents: 'center'
-            }
-          }>
-            <GameLoader />
-          </div>
-        :
-          <GameList games={ this.state.games } filter={ this.state.filter }/>
+          ? 
+            <div style={
+              { 
+                height: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContents: 'center'
+              }
+            }>
+              <GameLoader />
+            </div>
+          :
+            <GameList games={ this.getGames() }/>
         }
       </div>
     )

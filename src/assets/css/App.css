@@ -47,6 +47,7 @@ html, body, #root{
 body {
   color: #fff;
   height: 100vh;
+  padding-top: 3.5rem;
   background: #1c2127;
   font-family: 'Source Sans Pro', sans-serif;
 }

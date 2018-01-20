@@ -15,10 +15,7 @@ export default class GameList extends Component {
 					gridTemplateColumns: "repeat(auto-fill, minmax(300px, auto))"
 				}
 			}> 
-				{		this.props.games
-						.filter(game => game.name.toLowerCase().includes(this.props.filter.toLowerCase()))
-						.map(game => <Game game={game} key={game.appid}/>)
-				}	
+				{ this.props.games.map(game => <Game game={game} key={game.appid}/>) }	
 			</div>
 			
 		)

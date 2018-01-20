@@ -4,7 +4,7 @@ export default styled.div`
 top: 0;
 left: 0;
 opacity: 0;
-z-index: 10;
+z-index: 5;
 width: 100%;
 height: 100%;
 display: flex;

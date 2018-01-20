@@ -4,6 +4,7 @@ export default styled.nav`
 	top: 0;
 	left:0;
 	width: 100%;
+	z-index: 10;
 	display: grid;
 	grid-area: nav;
 	grid-gap: 1rem;
