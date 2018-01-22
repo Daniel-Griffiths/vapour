@@ -8,16 +8,13 @@ import GameSearch from './GameSearch'
 import './../assets/css/App.css';
 
 export default class App extends Component {
-  constructor() {
-    super()
-    this.state = {
+  state = {
       filter: '',
       games: []
-    } 
-  }
+  } 
 
   componentDidMount() {
-    const id = '76561197977953772';
+    const id = '76561198025246708';
     const secret = '';
     fetch(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${secret}&steamid=${id}&format=json&include_appinfo=1&include_played_free_games=1`)
     .then(response => response.json())
@@ -43,13 +40,13 @@ export default class App extends Component {
             <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
           </NavItem>
           <NavItem>
-            <NavButton><i className="fas fa-shopping-cart"></i></NavButton>
+            <NavButton target="_blank" href="http://store.steampowered.com/"><i className="fas fa-shopping-cart"></i></NavButton>
           </NavItem>
           <NavItem>
-            <NavButton><i className="fas fa-users"></i></NavButton>
+            <NavButton target="_blank" href="https://steamcommunity.com/chat"><i className="fas fa-users"></i></NavButton>
           </NavItem>
           <NavItem>
-            <NavButton><i className="fas fa-cog"></i></NavButton>
+            <NavButton href="#"><i className="fas fa-cog"></i></NavButton>
           </NavItem>
         </Nav>
         { !this.state.games.length 

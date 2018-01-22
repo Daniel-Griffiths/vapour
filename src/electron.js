@@ -22,6 +22,8 @@ function createWindow () {
     }
   })
 
+  mainWindow.maximize()
+
   // and load the index.html of the app.
 	const startUrl = process.env.ELECTRON_START_URL || url.format({
 	    pathname: path.join(__dirname, '/../build/index.html'),

@@ -11,7 +11,6 @@ export default class GameList extends Component {
 					display: "grid",
 					gridGap: "1rem",
 					gridArea: "main",
-					overflowY: "scroll",
 					gridTemplateColumns: "repeat(auto-fill, minmax(300px, auto))"
 				}
 			}> 

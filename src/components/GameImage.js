@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
-import LazyLoad from 'react-lazyload'
-import GameLoader from './GameLoader'
+import defaultImage from './../assets/img/default.jpg'
 
 export default class GameImage extends Component {
 	render() {
 		return (
-			<LazyLoad height={200} offset={200} placeholder={<GameLoader />} once>
-				<img src={ this.props.src } alt={ this.props.alt } style={
+			<img 
+				src={ this.props.src } 
+				alt={ this.props.alt }
+				ref={ img => this.img = img } 
+				onError={
+				    () => this.img.src = defaultImage
+				}
+				style={
 					{
 						display: 'block',
 						width: '100%',
 					}
-				}/>
-			</LazyLoad>
+				}
+			/>
+
 		)
 	}
 }

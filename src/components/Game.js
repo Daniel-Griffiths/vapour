@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import GameImage from './GameImage' 
 import GameOverlay from './GameOverlay'
 import GameDescription from './GameDescription'
+const exec = window.require('child_process').exec
 
 export default class Game extends Component {
 	start(game) {
-
+		exec('c:\\WINDOWS\\system32\\cmd.exe /c START steam://rungameid/' + game)
 	}
 
 	render() {
 		return (
-			<div onClick={() => this.start(this.props.game.id)}
+			<div onClick={() => this.start(this.props.game.appid)}
 			style={
 				{
 					position: 'relative',

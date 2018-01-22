@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export default styled.div`
+export default styled.a`
+	color: #fff;
 	display: block;
     cursor: pointer;
     border-radius: 3px;
