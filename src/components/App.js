@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import Nav from './Nav'
 import NavItem from './NavItem'
 import GameList from './GameList'
 import NavButton from './NavButton'
 import GameLoader from './GameLoader'
 import GameSearch from './GameSearch'
-import './../assets/css/App.css';
+
+import './../assets/css/App.css'
 
 export default class App extends Component {
   state = {
@@ -35,6 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Link to="/setup">wow</Link>
         <Nav>
           <NavItem>
             <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
