@@ -55,14 +55,7 @@ export default class App extends Component {
         </Nav>
         { !this.state.games.length 
           ? 
-            <div style={
-              { 
-                height: '100vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContents: 'center'
-              }
-            }>
+            <div style={styles.container}>
               <GameLoader />
             </div>
           :
@@ -70,5 +63,14 @@ export default class App extends Component {
         }
       </div>
     )
+  }
+}
+
+const styles = {
+  container: {
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContents: 'center'
   }
 }

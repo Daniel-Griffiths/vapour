@@ -8,17 +8,17 @@ export default class GameImage extends Component {
 				src={ this.props.src } 
 				alt={ this.props.alt }
 				ref={ img => this.img = img } 
-				onError={
-				    () => this.img.src = defaultImage
-				}
-				style={
-					{
-						display: 'block',
-						width: '100%',
-					}
-				}
+				onError={ () => this.img.src = defaultImage }
+				style={styles.image}
 			/>
 
 		)
+	}
+}
+
+const styles = {
+	image: {
+		display: 'block',
+		width: '100%'
 	}
 }

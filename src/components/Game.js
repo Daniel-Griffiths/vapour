@@ -12,15 +12,7 @@ export default class Game extends Component {
 	render() {
 		return (
 			<div onClick={() => this.start(this.props.game.appid)}
-			style={
-				{
-					position: 'relative',
-					overflow: 'hidden',
-					transition: '.3s ease',
-					boxShadow: 'var(--box-shadow-primary)',
-					background: 'var(--brand-primary)',
-				}
-			}> 
+			style={styles.game}> 
 				<GameOverlay> 
 					<i className="fas fa-play"></i>
 				</GameOverlay>
@@ -31,5 +23,15 @@ export default class Game extends Component {
 				</div>
   			</div>
 		)
+	}
+}
+
+const styles = {
+	game: {
+		position: 'relative',
+		overflow: 'hidden',
+		transition: '.3s ease',
+		boxShadow: 'var(--box-shadow-primary)',
+		background: 'var(--brand-primary)',
 	}
 }
