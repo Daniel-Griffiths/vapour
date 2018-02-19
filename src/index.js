@@ -32,9 +32,8 @@ ReactDOM.render(
 	          </NavItem>
 	        </Nav>
 			<Switch>
-				<Route exact path="/" component={App}/>
 				<Route path="/settings" component={Settings}/>
-				<Route path="*" component={NotFound} />
+				<Route path="*" component={App} />
 			</Switch>
 		</div>
 	</Router>
