@@ -22,10 +22,10 @@ ReactDOM.render(
 	            <Link to="/"><Button href="#"><i className="fas fa-home"></i></Button></Link>
 	          </NavItem>	          
 	          <NavItem>
-	            <Button target="_blank" href="http://store.steampowered.com/"><i className="fas fa-shopping-cart"></i></Button>
+	            <a target="_blank" href="http://store.steampowered.com/"><Button><i className="fas fa-shopping-cart"></i></Button></a>
 	          </NavItem>
 	          <NavItem>
-	            <Button target="_blank" href="https://steamcommunity.com/chat"><i className="fas fa-users"></i></Button>
+	            <a target="_blank" href="https://steamcommunity.com/chat"><Button><i className="fas fa-users"></i></Button></a>
 	          </NavItem>
 	          <NavItem>
 	            <Link to="/settings"><Button href="#"><i className="fas fa-cog"></i></Button></Link>
