@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, BrowserRouter as Router, Switch, Link  } from 'react-router-dom'
+import { Route, HashRouter as Router, Switch, Link  } from 'react-router-dom'
 
 import App from './components/App'
 import Nav from './components/Nav'
@@ -32,8 +32,9 @@ ReactDOM.render(
 	          </NavItem>
 	        </Nav>
 			<Switch>
+				<Route exact path="/" component={App}/>
 				<Route path="/settings" component={Settings}/>
-				<Route path="*" component={App} />
+				<Route path="*" component={NotFound} />
 			</Switch>
 		</div>
 	</Router>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
 
 import Alert from './Alert'
 import GameList from './GameList'
 import GameLoader from './GameLoader'
+import { Redirect } from 'react-router-dom'
 
 import './../assets/css/App.css'
 
@@ -11,16 +11,14 @@ export default class App extends Component {
   state = {
       filter: '',
       games: [],
-      errorMessage: ''
+      steamID: '',
+      steamSecret: '',
+      errorMessage: '',
   } 
 
   componentDidMount() {
     const id = localStorage.getItem('steamId')
     const secret = localStorage.getItem('steamSecret')
-
-    if(!id || !secret){
-      window.location.replace('/settings')
-    }
 
     fetch(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${secret}&steamid=${id}&format=json&include_appinfo=1&include_played_free_games=1`)
     .then(response => response.json())
@@ -42,10 +40,17 @@ export default class App extends Component {
 
   render() {
 
+    // Redirect if the keys are blank
+    if(!localStorage.getItem('steamId') || !localStorage.getItem('steamSecret')){
+      return <Redirect to="/settings" />
+    }       
+
+    // Looks like there was an error getting the games
     if(this.state.errorMessage){
       return <Alert>{ this.state.errorMessage }</Alert>
     }
 
+    // All good yo
     return (
       <div>
         { !this.state.games.length 
