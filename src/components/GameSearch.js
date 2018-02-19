@@ -1,3 +1,4 @@
+import Input from './Input'
 import React, { Component } from 'react'
 
 export default class GameSearch extends Component {
@@ -6,8 +7,8 @@ export default class GameSearch extends Component {
 		return (
 			<div>
 				<i className="fas fa-search" style={styles.icon}></i>
-				<input 
-					style={styles.search}
+				<Input 
+					style={{ padding: '.5rem 1rem .5rem 2.5rem' }}
 					placeholder="Search" 
 					autoFocus="true" 
 					onKeyUp={
@@ -24,14 +25,5 @@ const styles = {
 		top: '1.2rem',
 		left: '1.25rem',
 		position: 'absolute',
-	},
-	search: {
-		border: '0',
-		outline: '0',
-		width: '100%',
-		display:'block',
-		color: 'inherit',
-		background: '#404b58',
-		padding: '.5rem 1rem .5rem 2.5rem',
 	}
 }

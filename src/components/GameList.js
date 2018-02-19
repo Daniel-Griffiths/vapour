@@ -19,6 +19,6 @@ const styles = {
 		display: "grid",
 		gridGap: "1rem",
 		gridArea: "main",
-		gridTemplateColumns: "repeat(auto-fill, minmax(300px, auto))"
+		gridTemplateColumns: "repeat(auto-fit, minmax(300px, auto))"
 	}
 }

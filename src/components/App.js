@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
-import Nav from './Nav'
-import NavItem from './NavItem'
+import Alert from './Alert'
 import GameList from './GameList'
-import NavButton from './NavButton'
 import GameLoader from './GameLoader'
-import GameSearch from './GameSearch'
 
 import './../assets/css/App.css'
 
 export default class App extends Component {
   state = {
       filter: '',
-      games: []
+      games: [],
+      errorMessage: ''
   } 
 
   componentDidMount() {
-    const id = '76561198025246708';
-    const secret = '';
+    const id = localStorage.getItem('steamId')
+    const secret = localStorage.getItem('steamSecret')
+
+    if(!id || !secret){
+      window.location.replace('/settings')
+    }
+
     fetch(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${secret}&steamid=${id}&format=json&include_appinfo=1&include_played_free_games=1`)
     .then(response => response.json())
     .then(response => response.response.games)
@@ -27,7 +30,9 @@ export default class App extends Component {
         games
       })
     }).catch(error => {
-      alert('Failed to load games. Please try restarting Vapour.')
+      this.setState({
+        errorMessage: 'Failed to load games. Please ensure the correct "Steam ID" and "Steam Secret" are set in the settings menu' 
+      })
     })  
   }
 
@@ -36,23 +41,13 @@ export default class App extends Component {
   }
 
   render() {
+
+    if(this.state.errorMessage){
+      return <Alert>{ this.state.errorMessage }</Alert>
+    }
+
     return (
       <div>
-        <Link to="/setup">wow</Link>
-        <Nav>
-          <NavItem>
-            <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
-          </NavItem>
-          <NavItem>
-            <NavButton target="_blank" href="http://store.steampowered.com/"><i className="fas fa-shopping-cart"></i></NavButton>
-          </NavItem>
-          <NavItem>
-            <NavButton target="_blank" href="https://steamcommunity.com/chat"><i className="fas fa-users"></i></NavButton>
-          </NavItem>
-          <NavItem>
-            <NavButton href="#"><i className="fas fa-cog"></i></NavButton>
-          </NavItem>
-        </Nav>
         { !this.state.games.length 
           ? 
             <div style={styles.container}>
