@@ -1,6 +1,6 @@
 <p align='center'><img width='400' src='https://i.imgur.com/lWpEu3o.png'/></p>
 
-An alternative open source Steam client. Built with React and Electron.
+An alternative open source Steam client built with React and Electron.
 
 ## Getting Started
 
