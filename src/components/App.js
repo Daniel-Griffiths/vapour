@@ -8,8 +8,8 @@ import { Redirect } from 'react-router-dom'
 import './../assets/css/App.css'
 
 export default class App extends Component {
+  
   state = {
-      filter: '',
       games: [],
       steamID: '',
       steamSecret: '',
@@ -35,7 +35,7 @@ export default class App extends Component {
   }
 
   getGames() {
-    return this.state.games.filter(game => game.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+    return this.state.games.filter(game => game.name.toLowerCase().includes(this.props.filter.toLowerCase()))
   }
 
   render() {
