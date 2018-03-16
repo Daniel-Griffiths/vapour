@@ -1,4 +1,4 @@
-<p align='center'><img width='400' src='https://i.imgur.com/lWpEu3o.png'/></p>
+<p align="center"><img width="400" src="/src/assets/img/logo.png"/></p>
 
 An alternative open source Steam client built with React and Electron.
 
@@ -12,5 +12,5 @@ You can get a Steam API key by visiting the following link http://steamcommunity
 
 use `yarn dist` to build
 
-<p align='center'><img src='https://i.imgur.com/aBhfzmW.jpg'/></p>
+<p align="center"><img src="/src/assets/img/screenshot.png"/></p>
 
