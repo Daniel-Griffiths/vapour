@@ -12,5 +12,5 @@ You can get a Steam API key by visiting the following link http://steamcommunity
 
 use `yarn dist` to build
 
-<p align="center"><img src="/src/assets/img/screenshot.png"/></p>
+<p align="center"><img src="/src/assets/img/screenshot.jpg"/></p>
 
