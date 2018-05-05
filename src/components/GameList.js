@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Game from './Game'
 
 export default class GameList extends Component {
 	render() {
 		return ( 
 			<div style={styles.gameList}> 
-				{ this.props.games.map(game => <Game game={game} key={game.appid}/>) }	
+				{ this.props.games.length
+					?
+						<Fragment>
+							{ this.props.games.map(game => <Game game={game} key={game.appid}/>) }	
+						</Fragment>
+					:
+						<Fragment>
+							No game were found.
+						</Fragment>
+				}
 			</div>
 			
 		)
