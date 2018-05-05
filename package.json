@@ -9,14 +9,14 @@
 		"react-dom": "^16.2.0",
 		"react-router": "^4.2.0",
 		"react-router-dom": "^4.2.2",
-		"styled-components": "^2.4.0"
+		"styled-components": "^3.2.6"
 	},
 	"devDependencies": {
-		"electron": "^1.7.10",
-		"electron-builder": "^19.54.0",
+		"electron": "^2.0.0",
+		"electron-builder": "^20.11.1",
 		"electron-settings": "^3.1.4",
 		"react-lazyload": "^2.3.0",
-		"react-scripts": "1.1.0"
+		"react-scripts": "1.1.4"
 	},
 	"scripts": {
 		"start": "nf start -p 3000",
