@@ -16,7 +16,7 @@ const FormContainer = styled.div`
 	}
 `
 
-export default class extends Component {
+export default class Settings extends Component {
 
 	onSubmit(e) {
 		e.preventDefault()

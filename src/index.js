@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import React, { Component, Fragment } from 'react'
+import registerServiceWorker from './registerServiceWorker'
 import { Route, HashRouter as Router, Switch, Link  } from 'react-router-dom'
 
 import App from './components/App'
 import Nav from './components/Nav'
+import Button from './components/Button'
+import Webview from './components/Webview'
+import GameSearch from './components/GameSearch'
+
 import NotFound from './pages/NotFound'
 import Settings from './pages/Settings'
-import NavItem from './components/NavItem'
-import Button from './components/Button'
-import GameSearch from './components/GameSearch'
-import registerServiceWorker from './registerServiceWorker'
 
 class Index extends Component {
 
@@ -20,30 +21,32 @@ class Index extends Component {
 	render(){
 		return (
 			<Router>
-				<div>
+				<Fragment>
 					<Nav>
-			          <NavItem>
+			          <div>
 			            <GameSearch onTextChange={ text => this.setState({filter: text}) }/>
-			          </NavItem>
-			          <NavItem>
+			          </div>
+			          <div>
 			            <Link to="/"><Button href="#"><i className="fas fa-home"></i></Button></Link>
-			          </NavItem>	          
-			          <NavItem>
-			            <a target="_blank" rel="noopener noreferrer" href="http://store.steampowered.com/"><Button><i className="fas fa-shopping-cart"></i></Button></a>
-			          </NavItem>
-			          <NavItem>
-			            <a target="_blank" rel="noopener noreferrer" href="https://steamcommunity.com/chat"><Button><i className="fas fa-users"></i></Button></a>
-			          </NavItem>
-			          <NavItem>
+			          </div>	          
+			          <div>
+			            <Link to="/store"><Button><i className="fas fa-shopping-cart"></i></Button></Link>
+			          </div>
+			          <div>
+			            <Link to="/chat"><Button><i className="fas fa-users"></i></Button></Link>
+			          </div>
+			          <div>
 			            <Link to="/settings"><Button href="#"><i className="fas fa-cog"></i></Button></Link>
-			          </NavItem>
+			          </div>
 			        </Nav>
 					<Switch>
 						<Route exact path="/" render={ () => <App filter={ this.state.filter } /> }/>
+						<Route path="/store" render={ () => <Webview src="https://store.steampowered.com/" /> }/>
+						<Route path="/chat" render={ () => <Webview src="https://steamcommunity.com/chat" /> }/>
 						<Route path="/settings" component={Settings}/>
 						<Route path="*" component={NotFound} />
 					</Switch>
-				</div>
+				</Fragment>
 			</Router>
 		)
 	}
