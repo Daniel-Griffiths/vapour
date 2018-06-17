@@ -1,5 +1,6 @@
 {
 	"name": "vapour",
+	"license": "MIT",
 	"version": "0.1.0",
 	"author": "Daniel Griffiths",
 	"description": "An alternative open source Steam client",
