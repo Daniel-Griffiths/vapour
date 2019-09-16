@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"electron": "^2.0.0",
-		"electron-builder": "^20.11.1",
+		"electron-builder": "^21.2.0",
 		"electron-settings": "^3.1.4",
 		"react-lazyload": "^2.3.0",
 		"react-scripts": "1.1.4"
