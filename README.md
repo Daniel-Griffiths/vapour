@@ -10,7 +10,9 @@ You can get a Steam API key by visiting the following link http://steamcommunity
 
 ## Developers
 
-use `yarn dist` to build
+make sure you have foreman install by running `yarn global add foreman` then run `yarn start` to get started.
+
+To compile a new build run `yarn dist`
 
 <p align="center"><img src="/src/assets/img/screenshot.jpg"/></p>
 

@@ -1,46 +1,58 @@
 {
-	"name": "vapour",
-	"license": "MIT",
-	"version": "0.1.0",
-	"author": "Daniel Griffiths",
-	"description": "An alternative open source Steam client",
-	"private": true,
-	"dependencies": {
-		"react": "^16.2.0",
-		"react-dom": "^16.2.0",
-		"react-router": "^5.0.1",
-		"react-router-dom": "^5.0.1",
-		"styled-components": "^4.3.2"
-	},
-	"devDependencies": {
-		"electron": "^6.0.9",
-		"electron-builder": "^21.2.0",
-		"electron-settings": "^3.1.4",
-		"react-lazyload": "^2.3.0",
-		"react-scripts": "3.1.1"
-	},
-	"scripts": {
-		"start": "nf start -p 3000",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject",
-		"electron": "electron .",
-		"electron-start": "node src/electron-wait-react",
-		"react-start": "react-scripts start",
-		"pack": "build --dir",
-		"dist": "npm run build && build",
-		"postinstall": "install-app-deps"
-	},
-	"homepage": "./",
-	"main": "src/electron.js",
-	"build": {
-		"extends": null,
-		"appId": "com.electron.electron-with-create-react-app",
-		"win": {
-			"icon": "./public/logo.png"
-		},
-		"directories": {
-			"buildResources": "public"
-		}
-	}
+  "name": "vapour",
+  "license": "MIT",
+  "version": "0.1.0",
+  "author": "Daniel Griffiths",
+  "description": "An alternative open source Steam client",
+  "private": true,
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "electron": "^6.0.9",
+    "electron-builder": "^21.2.0",
+    "electron-settings": "^3.2.0",
+    "react-lazyload": "^2.6.2",
+    "react-scripts": "3.1.1"
+  },
+  "scripts": {
+    "start": "nf start -p 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/electron-wait-react",
+    "react-start": "react-scripts start",
+    "pack": "build --dir",
+    "dist": "npm run build && build",
+    "postinstall": "install-app-deps"
+  },
+  "homepage": "./",
+  "main": "src/electron.js",
+  "build": {
+    "extends": null,
+    "appId": "com.electron.electron-with-create-react-app",
+    "win": {
+      "icon": "./public/logo.png"
+    },
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
