@@ -1,0 +1,33 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: electron
+    versions:
+    - 11.2.1
+    - 11.2.2
+    - 11.2.3
+    - 11.3.0
+    - 12.0.0
+    - 12.0.1
+    - 12.0.2
+    - 12.0.4
+  - dependency-name: styled-components
+    versions:
+    - 5.2.1
+    - 5.2.2
+  - dependency-name: react
+    versions:
+    - 17.0.1
+  - dependency-name: react-lazyload
+    versions:
+    - 3.1.0
+    - 3.1.1
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
