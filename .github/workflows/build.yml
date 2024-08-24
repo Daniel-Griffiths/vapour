@@ -27,8 +27,14 @@ jobs:
       - name: "Install Dependencies"
         run: yarn install --prefer-offline --frozen-lockfile
 
+      - name: Install Wine
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          sudo apt install -y wine64 wine32
+
       - name: "Build App"
-        run: yarn build --win --linux
+        run: yarn build --win --linux --publish never
 
       - name: "Get Package Version"
         id: package-version
