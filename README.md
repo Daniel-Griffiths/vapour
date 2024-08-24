@@ -29,4 +29,4 @@ yarn build --win
 yarn build --linux
 ```
 
-<p align="center"><img src="/src/assets/img/screenshot.jpg"/></p>
+<p align="center"><img src="/public/screenshot.png"/></p>
