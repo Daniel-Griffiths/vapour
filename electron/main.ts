@@ -2,7 +2,7 @@ import path from "node:path";
 import Store from "electron-store";
 import { fileURLToPath } from "node:url";
 import { exec } from "node:child_process";
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, Menu } from "electron";
 
 import { Steam } from "../src/utils/steam";
 
@@ -14,9 +14,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 process.env.APP_ROOT = path.join(__dirname, "..");
 
+export const RENDERER_DIST = path.join(process.env.APP_ROOT, "dist");
 export const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 export const MAIN_DIST = path.join(process.env.APP_ROOT, "dist-electron");
-export const RENDERER_DIST = path.join(process.env.APP_ROOT, "dist");
 
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
   ? path.join(process.env.APP_ROOT, "public")
@@ -40,6 +40,9 @@ function createWindow() {
 
   // Maximize the window by default
   win.maximize();
+
+  // Hide the default application menu
+  win.setMenuBarVisibility(false);
 
   // Test active push message to Renderer-process.
   win.webContents.on("did-finish-load", () => {
@@ -84,22 +87,28 @@ ipcMain.handle("set-store-value", (_event, key, value) => {
   store.set(key, value);
 });
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+app.on("ready", () => {
+  createWindow();
+
+  const cleanup = () => {
+    if (win) {
+      win.close();
+    }
+    app.quit();
+  };
+
+  process.on("SIGINT", cleanup);
+  process.on("SIGTERM", cleanup);
+});
+
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
-    win = null;
   }
 });
 
-app.whenReady().then(async () => {
-  createWindow();
-
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
 });

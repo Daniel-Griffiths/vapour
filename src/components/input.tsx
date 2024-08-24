@@ -25,10 +25,14 @@ export function Input({ label, description, ...props }: IInputProps) {
 
 const StyledInput = styled.input`
   width: 100%;
-  padding: 0.5rem;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  outline: none;
   font-size: 1rem;
-  border-radius: 0.3rem;
-  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.1);
 `;
 
 const StyledInputLabel = styled.label`

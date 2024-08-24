@@ -27,7 +27,9 @@ const PAGES: INavItemProps[] = [
   },
 ];
 
-export function Nav() {
+export interface INavProps {}
+
+export function Nav(_: INavProps) {
   const { ref, focusKey, focusSelf } = useFocusable();
 
   useEffect(() => {

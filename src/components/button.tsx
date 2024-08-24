@@ -52,7 +52,7 @@ const StyledButton = styled(View)<{ variant?: IButtonProps["variant"] }>`
       case "secondary":
         return `
           color: #fff;
-          background-color:#6c757d;
+          background-color: rgba(255, 255, 255, 0.1);
           box-shadow: none;
         `;
       case "tertiary":

@@ -1,12 +1,12 @@
 const BASE_URL = "https://api.steampowered.com/";
 
 interface IGame {
-  appid: number;
   name: string;
+  appid: number;
   img_icon_url: string;
   img_logo_url: string;
-  rtime_last_played: number;
   playtime_forever: number;
+  rtime_last_played: number;
   has_community_visible_stats: boolean;
 }
 

@@ -98,12 +98,11 @@ const pulse = keyframes`
 `;
 
 const StyledGame = styled.div<{ focused: boolean }>`
+  padding: 3px;
   overflow: hidden;
   position: relative;
-  background: #252830;
   transition: 0.3s ease;
 
-  border: 3px solid transparent;
   outline: 3px solid transparent;
   ${({ focused }) =>
     focused &&
@@ -124,6 +123,7 @@ const StyledGameImage = styled.img<{ imageState: ImageState }>`
   width: var(--size);
   height: var(--size);
   object-fit: contain;
+  background: #252830;
 
   ${(props) => {
     switch (props.imageState) {

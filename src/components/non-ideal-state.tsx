@@ -6,8 +6,8 @@ import { Button } from "./button";
 export interface INonIdealStateProps {
   title: string;
   description: string;
-  buttonText: string;
-  onButtonClick: () => void;
+  buttonText?: string;
+  onButtonClick?: () => void;
 }
 
 export function NonIdealState(props: INonIdealStateProps) {
@@ -17,9 +17,11 @@ export function NonIdealState(props: INonIdealStateProps) {
     <StyledContainer gap="1rem" align="center" justify="center" flex={1}>
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
-      <Button variant="secondary" onClick={onButtonClick}>
-        {buttonText}
-      </Button>
+      {buttonText && (
+        <Button variant="secondary" onClick={onButtonClick}>
+          {buttonText}
+        </Button>
+      )}
     </StyledContainer>
   );
 }
