@@ -2,7 +2,7 @@ import path from "node:path";
 import Store from "electron-store";
 import { fileURLToPath } from "node:url";
 import { exec } from "node:child_process";
-import { app, BrowserWindow, ipcMain, Menu } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 
 import { Steam } from "../src/utils/steam";
 
@@ -28,7 +28,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1280,
     height: 720,
-    icon: path.join(process.env.VITE_PUBLIC, "logo.svg"),
+    icon: path.join(process.env.VITE_PUBLIC, "logo.png"),
     webPreferences: {
       devTools: true,
       webviewTag: true,

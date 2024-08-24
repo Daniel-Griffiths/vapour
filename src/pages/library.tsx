@@ -8,7 +8,6 @@ import {
 
 import { Game } from "../components/game";
 import { Grid } from "../components/grid";
-import { Page } from "../components/page";
 import { Stack } from "../components/stack";
 import { Input } from "../components/input";
 import { Loader } from "../components/loader";
