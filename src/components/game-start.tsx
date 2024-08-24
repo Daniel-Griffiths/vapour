@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Loader } from "./loader";
 
 export interface IGameStartProps {
@@ -15,7 +16,9 @@ export function GameStart({ message, isOpen }: IGameStartProps) {
   );
 }
 
-const StyledGameStart = styled.div<IGameStartProps>`
+const StyledGameStart = styled.div<{
+  isOpen: boolean;
+}>`
   top: 0;
   left: 0;
   gap: 1rem;

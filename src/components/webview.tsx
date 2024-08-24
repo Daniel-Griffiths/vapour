@@ -1,6 +1,7 @@
-import { Loader } from "./loader";
 import styled from "styled-components";
 import { useRef, useEffect, useState, LegacyRef } from "react";
+
+import { Loader } from "./loader";
 
 export type IWebviewRef = LegacyRef<HTMLWebViewElement> & {
   injectJavaScript: (script: string) => void;

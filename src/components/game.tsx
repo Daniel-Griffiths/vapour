@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { useCallback, useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 
@@ -20,7 +20,7 @@ export function Game({ appid, onClick }: IGameProps) {
   const [imageState, setImageState] = useState<ImageState>(ImageState.Primary);
   const { ref, focused, focusSelf } = useFocusable({
     onEnterPress: () => {
-      handleOnClick();
+      onClick(appid);
     },
     /**
      * Restores auto-scrolling when focused using a keyboard
@@ -40,26 +40,24 @@ export function Game({ appid, onClick }: IGameProps) {
     }
   }, [focused, inView, ref, isManuallyFocused]);
 
-  function handleOnError(
-    _e: React.SyntheticEvent<HTMLImageElement, Event>
-  ): void {
+  const handleOnError = useCallback((): void => {
     switch (imageState) {
       case ImageState.Primary:
         return setImageState(ImageState.Fallback);
       case ImageState.Fallback:
         return setImageState(ImageState.Missing);
     }
-  }
+  }, [imageState]);
 
   /**
    * Disables auto-scrolling when focused using a mouse
    */
-  function handleFocusSelf(): void {
+  const handleFocusSelf = useCallback((): void => {
     setIsManuallyFocused(true);
     focusSelf();
-  }
+  }, [focusSelf]);
 
-  function getImageUrl(): string {
+  const getImageUrl = useCallback((): string => {
     switch (imageState) {
       case ImageState.Primary:
         return `http://cdn.akamai.steamstatic.com/steam/apps/${appid}/library_600x900.jpg`;
@@ -68,22 +66,22 @@ export function Game({ appid, onClick }: IGameProps) {
       default:
         return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAgAB/axX6AAA";
     }
-  }
+  }, [imageState, appid]);
 
   return (
-    <StyledBox
+    <StyledGame
       ref={ref}
       focused={focused}
       onClick={() => onClick(appid)}
       onMouseEnter={handleFocusSelf}
     >
-      <StyledImage
+      <StyledGameImage
         loading="lazy"
         src={getImageUrl()}
         onError={handleOnError}
         imageState={imageState}
       />
-    </StyledBox>
+    </StyledGame>
   );
 }
 
@@ -99,7 +97,7 @@ const pulse = keyframes`
   }
 `;
 
-const StyledBox = styled.div<{ focused: boolean }>`
+const StyledGame = styled.div<{ focused: boolean }>`
   overflow: hidden;
   position: relative;
   background: #252830;
@@ -119,7 +117,7 @@ const StyledBox = styled.div<{ focused: boolean }>`
   }
 `;
 
-const StyledImage = styled.img<{ imageState: ImageState }>`
+const StyledGameImage = styled.img<{ imageState: ImageState }>`
   --size: 100%;
 
   display: block;

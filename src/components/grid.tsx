@@ -1,6 +1,7 @@
-import React, { forwardRef } from "react";
-import { Container } from "./container";
 import styled from "styled-components";
+import React, { forwardRef } from "react";
+
+import { Container } from "./container";
 
 export const Grid = forwardRef<HTMLDivElement, { children: React.ReactNode }>(
   ({ children }, ref) => {

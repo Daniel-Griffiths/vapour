@@ -1,13 +1,14 @@
-import { Steam } from "../utils/steam";
 import { useEffect, useState } from "react";
+
+import { Steam } from "../utils/steam";
 import { Storage, StorageKey } from "../utils/storage";
 
 const { ipcRenderer } = window.require("electron");
 
 export enum LoadingState {
-  Loading = "loading",
-  Loaded = "loaded",
   Error = "error",
+  Loaded = "loaded",
+  Loading = "loading",
 }
 
 export function useGetLibrary() {

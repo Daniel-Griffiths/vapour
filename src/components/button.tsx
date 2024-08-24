@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import React, { forwardRef } from "react";
-import { IViewProps, View } from "./view";
+import React, { forwardRef, useCallback } from "react";
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
+
+import { IViewProps, View } from "./view";
 
 export interface IButtonProps extends IViewProps {
   onClick?: () => void;
@@ -13,9 +14,9 @@ export const Button = forwardRef<HTMLDivElement, IButtonProps>(
   ({ children, variant = "tertiary", ...props }, ref) => {
     const { focused, focusSelf } = useFocusable();
 
-    const getVariant = () => {
+    const getVariant = useCallback(() => {
       return focused ? "primary" : variant;
-    };
+    }, [focused, variant]);
 
     return (
       <StyledButton

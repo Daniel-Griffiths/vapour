@@ -1,10 +1,11 @@
-import { Stack } from "./stack";
 import { useEffect } from "react";
 import styled from "styled-components";
 import {
   useFocusable,
   FocusContext,
 } from "@noriginmedia/norigin-spatial-navigation";
+
+import { Stack } from "./stack";
 import { INavItemProps, NavItem } from "./nav-item";
 
 const PAGES: INavItemProps[] = [

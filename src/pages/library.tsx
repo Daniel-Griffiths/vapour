@@ -1,4 +1,9 @@
 import { useState } from "react";
+import {
+  FocusContext,
+  useFocusable,
+} from "@noriginmedia/norigin-spatial-navigation";
+
 import { Game } from "../components/game";
 import { Grid } from "../components/grid";
 import { Stack } from "../components/stack";
@@ -7,10 +12,7 @@ import { Container } from "../components/container";
 import { GameStart } from "../components/game-start";
 import { NonIdealState } from "../components/non-ideal-state";
 import { LoadingState, useGetLibrary } from "../hooks/useGetLibrary";
-import {
-  FocusContext,
-  useFocusable,
-} from "@noriginmedia/norigin-spatial-navigation";
+
 const { ipcRenderer } = window.require("electron");
 
 export function LibraryPage() {

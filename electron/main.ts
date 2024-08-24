@@ -2,8 +2,9 @@ import path from "node:path";
 import Store from "electron-store";
 import { fileURLToPath } from "node:url";
 import { exec } from "node:child_process";
-import { Steam } from "../src/utils/steam";
 import { app, BrowserWindow, ipcMain } from "electron";
+
+import { Steam } from "../src/utils/steam";
 
 const store = new Store({
   encryptionKey: "546h924sq7egPr", // todo make this unique for each user
