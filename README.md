@@ -1,9 +1,9 @@
-<p align="center">
+<div align="center">
     <img width="400" src="/src/assets/img/logo.png" alt="Logo"/>
-</p>
-<p align="center">
+</div>
+<div align="center">
     An alternative open source Steam client built with React and Electron.
-</p>
+</div>
 
 ## Getting Started
 
