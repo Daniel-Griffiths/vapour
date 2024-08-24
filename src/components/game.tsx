@@ -3,8 +3,6 @@ import { useInView } from "react-intersection-observer";
 import styled, { css, keyframes } from "styled-components";
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 
-const { ipcRenderer } = window.require("electron");
-
 enum ImageState {
   Primary,
   Fallback,
@@ -13,9 +11,10 @@ enum ImageState {
 
 export interface IGameProps {
   appid: string;
+  onClick: (appid: string) => void;
 }
 
-export function Game({ appid }: IGameProps) {
+export function Game({ appid, onClick }: IGameProps) {
   const { inView } = useInView();
   const [isManuallyFocused, setIsManuallyFocused] = useState<boolean>(false);
   const [imageState, setImageState] = useState<ImageState>(ImageState.Primary);
@@ -40,10 +39,6 @@ export function Game({ appid }: IGameProps) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [focused, inView, ref, isManuallyFocused]);
-
-  function handleOnClick(): void {
-    ipcRenderer.send("run-game", appid);
-  }
 
   function handleOnError(
     _e: React.SyntheticEvent<HTMLImageElement, Event>
@@ -79,7 +74,7 @@ export function Game({ appid }: IGameProps) {
     <StyledBox
       ref={ref}
       focused={focused}
-      onClick={handleOnClick}
+      onClick={() => onClick(appid)}
       onMouseEnter={handleFocusSelf}
     >
       <StyledImage

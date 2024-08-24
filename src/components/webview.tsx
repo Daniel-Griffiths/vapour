@@ -52,7 +52,7 @@ const StyledWebview = styled.div`
   height: 100%;
   display: flex;
   background: #1f2126;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 `;

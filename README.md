@@ -22,7 +22,11 @@ yarn dev
 And to create a release build run the following command:
 
 ```bash
-yarn build
+# Windows
+yarn build --win
+
+# Linux
+yarn build --linux
 ```
 
 <p align="center"><img src="/src/assets/img/screenshot.jpg"/></p>
