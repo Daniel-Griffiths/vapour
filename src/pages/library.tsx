@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { debounce, isEmpty } from "lodash";
+import { useNavigate } from "react-router-dom";
 import { useCallback, useMemo, useState } from "react";
 import {
   FocusContext,
@@ -19,6 +20,7 @@ import { LoadingState, useGetLibrary } from "../hooks/useGetLibrary";
 const { ipcRenderer } = window.require("electron");
 
 export function LibraryPage() {
+  const navigate = useNavigate();
   const { ref, focusKey } = useFocusable();
   const { games, state } = useGetLibrary();
   const [search, setSearch] = useState<string>("");
@@ -62,7 +64,7 @@ export function LibraryPage() {
           description="Please set your Steam ID and API key in the settings."
           buttonText="Go to settings"
           onButtonClick={() => {
-            window.location.href = "/settings";
+            navigate("/settings");
           }}
         />
       );
