@@ -28,7 +28,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1280,
     height: 720,
-    icon: path.join(process.env.VITE_PUBLIC, "logo.png"),
+    icon: path.join(process.env.VITE_PUBLIC, "icon.png"),
     webPreferences: {
       devTools: true,
       webviewTag: true,
