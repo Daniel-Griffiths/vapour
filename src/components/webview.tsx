@@ -3,33 +3,54 @@ import { useRef, useEffect, useState, LegacyRef } from "react";
 
 import { Loader } from "./loader";
 
-export type IWebviewRef = LegacyRef<HTMLWebViewElement> & {
-  injectJavaScript: (script: string) => void;
+export type IWebviewRef = HTMLWebViewElement & {
+  insertCSS: (css: string) => void;
 };
 
 export interface IWebviewProps {
   src: string;
+  injectedCSS?: string;
 }
 
-export const Webview = ({ src }: IWebviewProps) => {
-  const webviewRef = useRef<HTMLWebViewElement>(null);
+export const Webview = ({ src, injectedCSS }: IWebviewProps) => {
+  const webviewRef = useRef<IWebviewRef>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  /**
+   * Show loading spinner when webview is initially loading
+   */
   useEffect(() => {
     const webview = webviewRef.current;
 
-    if (webview) {
-      const handleLoadStop = () => {
-        setIsLoading(false);
-      };
+    if (!webview) return;
 
-      webview.addEventListener("did-stop-loading", handleLoadStop);
+    const handleLoadStop = () => {
+      setIsLoading(false);
+    };
 
-      return () => {
-        webview.removeEventListener("did-stop-loading", handleLoadStop);
-      };
-    }
+    webview.addEventListener("did-stop-loading", handleLoadStop);
+
+    return () => {
+      webview.removeEventListener("did-stop-loading", handleLoadStop);
+    };
   }, []);
+
+  /**
+   * Inject CSS into webview
+   */
+  useEffect(() => {
+    const webview = webviewRef.current;
+    if (!webview || !injectedCSS) return;
+
+    const handleDomReady = () => {
+      webview.insertCSS(injectedCSS);
+    };
+    webview.addEventListener("dom-ready", handleDomReady);
+
+    return () => {
+      webview.removeEventListener("dom-ready", handleDomReady);
+    };
+  }, [injectedCSS]);
 
   return (
     <StyledWebview>
