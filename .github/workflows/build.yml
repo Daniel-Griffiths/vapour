@@ -41,7 +41,7 @@ jobs:
         uses: martinbeentjes/npm-get-version-action@v1.3.1
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v1
         with:
           target_commitish: master
           tag_name: ${{ steps.package-version.outputs.current-version}}
