@@ -46,7 +46,7 @@ jobs:
           target_commitish: master
           tag_name: ${{ steps.package-version.outputs.current-version}}
           files: |
-            release/**/Vapour-*.AppImage
-            release/**/Vapour-*.exe
+            release/**/*.AppImage
+            release/**/*.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

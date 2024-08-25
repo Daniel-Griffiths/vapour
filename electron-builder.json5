@@ -26,6 +26,7 @@
     perMachine: false,
     allowToChangeInstallationDirectory: true,
     deleteAppDataOnUninstall: false,
+    packElevateHelper: false,
   },
   linux: {
     target: ["AppImage"],
