@@ -27,6 +27,10 @@ And to create a release build run the following command:
 # Windows
 yarn build --win
 
+# Mac
+yarn build --mac
+
 # Linux
 yarn build --linux
+
 ```
