@@ -32,7 +32,9 @@ jobs:
 
       - name: "Get Package Version"
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "current-version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
