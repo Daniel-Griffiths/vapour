@@ -34,3 +34,11 @@ yarn build --mac
 yarn build --linux
 
 ```
+
+## Running Github Actions Locally
+
+Install [act](https://github.com/nektos/act) and run the following command
+
+```bash
+act -P macos-latest=node:20 --reuse --container-architecture linux/amd64
+```
