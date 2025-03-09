@@ -1,7 +1,7 @@
 {
   "name": "vapour",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Daniel Griffiths",
   "description": "An alternative open source Steam client",
   "type": "module",
