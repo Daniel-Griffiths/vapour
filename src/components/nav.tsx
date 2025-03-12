@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import {
   useFocusable,
@@ -30,11 +29,7 @@ const PAGES: INavItemProps[] = [
 export interface INavProps {}
 
 export function Nav(_: INavProps) {
-  const { ref, focusKey, focusSelf } = useFocusable();
-
-  useEffect(() => {
-    focusSelf();
-  }, [focusSelf]);
+  const { ref, focusKey } = useFocusable();
 
   return (
     <FocusContext.Provider value={focusKey}>

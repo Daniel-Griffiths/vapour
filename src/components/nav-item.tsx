@@ -1,5 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
-import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
+import { useLocation } from "react-router-dom";
 
 import { Button } from "./button";
 
@@ -9,14 +8,11 @@ export interface INavItemProps {
 }
 
 export function NavItem({ name, path }: INavItemProps) {
-  const { ref } = useFocusable();
   const { pathname } = useLocation();
 
   return (
-    <Link to={path}>
-      <Button ref={ref} variant={pathname === path ? "secondary" : undefined}>
-        {name}
-      </Button>
-    </Link>
+    <Button variant={pathname === path ? "secondary" : undefined} to={path}>
+      {name}
+    </Button>
   );
 }
