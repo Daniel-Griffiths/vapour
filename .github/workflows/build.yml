@@ -12,7 +12,10 @@ permissions:
 
 jobs:
   release:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout Repository
@@ -27,8 +30,37 @@ jobs:
       - name: "Install Dependencies"
         run: yarn install --prefer-offline --frozen-lockfile
 
-      - name: "Build App"
-        run: yarn build --win --linux --mac --publish never
+      - name: "Build Mac and Windows"
+        if: matrix.os == 'macos-latest'
+        run: |
+          yarn build:mac
+          yarn build:windows
+
+      - name: "Build Linux AppImage"
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          yarn build:linux
+
+      - name: "Build Linux Flatpak"
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          # Install flatpak-builder
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+
+          # Install required flatpak runtimes (with --user flag)
+          flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak install --user -y flathub org.freedesktop.Platform//23.08
+          flatpak install --user -y flathub org.freedesktop.Sdk//23.08
+          flatpak install --user -y flathub org.electronjs.Electron2.BaseApp/x86_64/23.08
+
+          # Install electron-installer-flatpak
+          npm install -g @malept/electron-installer-flatpak
+
+          # Build flatpak
+          yarn run build:dist
+          yarn run build:linuxdir
+          yarn run build:flatpak
 
       - name: "Get Package Version"
         id: package-version
@@ -45,5 +77,6 @@ jobs:
             release/**/Vapour-*.AppImage
             release/**/Vapour-*.exe
             release/**/Vapour-*.dmg
+            release/**/Vapour-*.flatpak
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
