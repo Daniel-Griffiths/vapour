@@ -2630,6 +2630,14 @@ functions-have-names@^1.2.3:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
+gamepad.js@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gamepad.js/-/gamepad.js-2.1.0.tgz#20b651f2b861653f2df9c862615eb0f397960a6c"
+  integrity sha512-DmOuDwT4nYH7+whhtZOTdNTXq3AFL8n2YZCoa10AkKHBa8Dh28dUTQudH0fH8kJAbOZbcYkyiFWp6x7HroT5IA==
+  dependencies:
+    option-resolver.js "^1.1.0"
+    tom32i-event-emitter.js "^2.0.5"
+
 gauge@^4.0.3:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-4.0.4.tgz#52ff0652f2bbf607a989793d53b751bef2328dce"
@@ -3724,6 +3732,11 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
+option-resolver.js@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/option-resolver.js/-/option-resolver.js-1.1.0.tgz#d24e8890b9d049056e9cc33b5232ecd4b6e4f0fb"
+  integrity sha512-gckuegIqAloPysPLK/mN3S88IcKfvPbSZntfpyqThbCKoPDmcC5kVM/2qpXglhrpab7GdWdd63XrttzTSMHUiw==
+
 optionator@^0.9.3:
   version "0.9.4"
   resolved "https://registry.yarnpkg.com/optionator/-/optionator-0.9.4.tgz#7ea1c1a5d91d764fb282139c88fe11e182a3a734"
@@ -4528,6 +4541,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+tom32i-event-emitter.js@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/tom32i-event-emitter.js/-/tom32i-event-emitter.js-2.0.5.tgz#b013d5a9f67d0ce2e370b353b55688c2041265f2"
+  integrity sha512-7wYTrHfV3gWRZXZQniMLOO5hh01szsTVulTWwcNheESvRUrveQCKKEz2YMceYQZdfpmXMC8PGpzOpUcnfXSXiw==
 
 truncate-utf8-bytes@^1.0.0:
   version "1.0.2"
