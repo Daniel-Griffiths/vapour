@@ -60,6 +60,14 @@ flatpak install org.electronjs.Electron2.BaseApp/x86_64/stable
 
 Install [act](https://github.com/nektos/act) and run the following command
 
+**Mac**
+
 ```bash
 act -P macos-latest=node:20 --reuse --container-architecture linux/amd64
+```
+
+**Linux**
+
+```bash
+act -P ubuntu-latest=-self-hosted
 ```
