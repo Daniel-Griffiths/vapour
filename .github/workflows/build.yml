@@ -33,14 +33,12 @@ jobs:
       - name: "Build Mac and Windows"
         if: matrix.os == 'macos-latest'
         run: |
-          yarn build:mac &
-          yarn build:windows &
-          wait
+          yarn build --win --mac
 
       - name: "Build Linux AppImage"
         if: matrix.os == 'ubuntu-latest'
         run: |
-          yarn build:linux
+          yarn build --linux
 
       # - name: "Build Linux Flatpak"
       #   if: matrix.os == 'ubuntu-latest'

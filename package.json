@@ -8,10 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build:dist": "tsc && vite build",
-    "build:mac": "yarn build:dist && electron-builder --mac --publish never",
-    "build:linux": "yarn build:dist && electron-builder --linux --publish never",
-    "build:windows": "yarn build:dist && electron-builder --win --publish never",
-    "build:all": "yarn build:dist && electron-builder --win --linux --mac --publish never",
+    "build": "yarn build:dist && electron-builder --publish never",
     "build:flatpak": "electron-installer-flatpak --src release/2.0.1/linux-unpacked --dest release/ --arch x64 --config flatconf.json --verbose",
     "build:linuxdir": "yarn build:dist && electron-builder --linux --x64 --dir && echo '24.1.3' > release/2.0.1/linux-unpacked/version && echo 'WIP' > release/2.0.1/linux-unpacked/LICENSE",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"

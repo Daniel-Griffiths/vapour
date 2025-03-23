@@ -25,13 +25,13 @@ And to create a release build run the following command:
 
 ```bash
 # Windows
-yarn build:windows
+yarn build --win
 
 # Mac
-yarn build:mac
+yarn build --mac
 
 # Linux
-yarn build:linux
+yarn build --linux
 ```
 
 ## For linux flatpak
